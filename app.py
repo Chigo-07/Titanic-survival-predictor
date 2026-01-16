@@ -4,7 +4,11 @@ import pickle
 app = Flask(__name__)
 
 with open("model.h5", "rb") as f:
-    model, scaler = pickle.load(f)
+    # Grab the model and scaler, and ignore anything else in the file
+    data = pickle.load(f)
+    model = data[0]
+    scaler = data[1]
+   
 
 @app.route("/", methods=["GET", "POST"])
 def home():
