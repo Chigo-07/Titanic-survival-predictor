@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Titanic Survival Predictor</title>
+<style>
+body { font-family: Arial; background: #eef; text-align:center; }
+form { background:#fff; padding:20px; width:350px; margin:auto; }
+input, select { width:90%; padding:8px; margin:5px; }
+button { background:#28a745; color:white; padding:10px; width:100%; }
+</style>
+</head>
+<body>
+
+<h2>Titanic Survival Prediction</h2>
+
+<form method="post">
+    <input name="pclass" placeholder="Passenger Class (1-3)">
+    <input name="sex" placeholder="Sex (0=Male,1=Female)">
+    <input name="age" placeholder="Age">
+    <input name="fare" placeholder="Fare">
+    <button>Predict</button>
+</form>
+
+{% if result != None %}
+<h3>{{ "Survived" if result==1 else "Did Not Survive" }}</h3>
+{% endif %}
+
+</body>
+</html>
